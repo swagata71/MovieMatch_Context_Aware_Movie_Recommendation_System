@@ -25,7 +25,7 @@ MovieMatch is an intelligent, context-aware recommendation system that offers pe
   - Matplotlib & Seaborn: Data visualization
   - Scikit-learn: Cosine similarity
   - Streamlit: Web application framework
-- **Data Source**: [The Movies Dataset]((https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata))
+- **Data Source**: [The Movies Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 
 ---
 
@@ -94,7 +94,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🙌 Acknowledgments
 
-- [The Movies Dataset]((https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata))
+- [The Movies Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 - Python and its community for libraries and tools.
 
 ---
