@@ -42,11 +42,14 @@ MovieMatch is an intelligent, context-aware recommendation system that offers pe
 ```
 MovieMatch_Context_Aware_Movie_Recommendation_System
 ├── app.py               # Streamlit application
-├── models/              # Pre-trained or generated models (if any)
+├── models/              # Pre-trained or generated models
+│   ├── movies.pkl       # Example: Movie metadata
+│   └── similarity.pkl   # Example: Precomputed similarity matrix
 ├── data/                # Movie datasets
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project documentation
 └── .gitignore           # Files to exclude from Git tracking
+
 ```
 
 ---
