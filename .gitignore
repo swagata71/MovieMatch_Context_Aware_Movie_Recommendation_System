@@ -1,0 +1,70 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+venv/
+env/
+*.env
+*.venv
+.Python
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Package and dependency files
+node_modules/
+*.lock
+
+# Data files
+*.csv
+*.json
+*.xml
+*.db
+*.sqlite3
+
+# Config files
+config.json
+*.ini
+*.yaml
+*.yml
+
+# Compiled libraries or binaries
+*.so
+*.dll
+*.dylib
+*.out
+*.exe
+
+# API keys and sensitive data
+.env
+*.key
+*.pem
+*.crt
+
+# Git-related files
+.gitignore
+
+*.pkl
+
+posters/
+*.png
+*.jpg
+*.jpeg
