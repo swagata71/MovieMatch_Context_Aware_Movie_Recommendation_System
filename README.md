@@ -4,7 +4,7 @@ MovieMatch is an intelligent, context-aware recommendation system that offers pe
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Multi-Criteria Filtering**: Filter movies by genre, ratings, popularity, runtime, or mood.
 - **Efficient Algorithms**: 
@@ -13,6 +13,8 @@ MovieMatch is an intelligent, context-aware recommendation system that offers pe
   - **Cosine Similarity**: Enhances personalization by analyzing similarities between user preferences and movie attributes.
 - **Optimized Performance**: Incorporates caching and dynamic updates for faster query processing.
 - **User-Friendly Interface**: Streamlit-based app with a clean and interactive design.
+- **Content-based Recommendations** using TF-IDF + Cosine Similarity
+- **Fuzzy Search**: Case-insensitive, partial title matching
 
 ---
 
@@ -45,7 +47,7 @@ MovieMatch_Context_Aware_Movie_Recommendation_System
 ├── models/              # Pre-trained or generated models
 │   ├── movies.pkl       # Example: Movie metadata
 │   └── similarity.pkl   # Example: Precomputed similarity matrix
-├── data/                # Movie datasets
+├── recommender.py       # Core logic for loading data, vectorizing tags, and generating movie recommendations
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project documentation
 └── .gitignore           # Files to exclude from Git tracking
@@ -54,7 +56,7 @@ MovieMatch_Context_Aware_Movie_Recommendation_System
 
 ---
 
-## 🔧 Installation & Usage
+##  Installation & Usage
 
 1. **Clone the Repository**:
    ```bash
@@ -77,7 +79,7 @@ MovieMatch_Context_Aware_Movie_Recommendation_System
 
 ---
 
-## 📈 Future Enhancements
+##  Future Enhancements
 
 - Sentiment-based filtering for personalized mood recommendations.
 - Real-time updates for dynamic data.
@@ -86,20 +88,20 @@ MovieMatch_Context_Aware_Movie_Recommendation_System
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🙌 Acknowledgments
+## Acknowledgments
 
 - [The Movies Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 - Python and its community for libraries and tools.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your proposed changes.
 
