@@ -1,51 +1,31 @@
 import streamlit as st
-import pickle
-import pandas as pd
-import requests
+from recommender import load_and_prepare_data, compute_similarity_matrix, get_recommendations
 
-def fetch_poster(movie_id):
-    response=requests.get('https://api.themoviedb.org/3/movie/{}?api_key=6c6a4d6eea269d143babcc1d60f89af0&&language-en-US'.format(movie_id))
-    data = response.json()
+st.set_page_config(page_title="MovieMatch", layout="centered")
+st.title("🎬 MovieMatch: Context-Aware Recommender")
 
+# Load movie data and similarity matrix
+df = load_and_prepare_data()
+similarity = compute_similarity_matrix(df)
 
-    return "https://image.tmdb.org/t/p/w500/"+data['poster_path']
-def recommend(movie):
-    movie_index = movies[movies['title'] == movie].index[0]
-    distances = similarity[movie_index]
-    movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[0:6]
-    recommended_movies = []
-    recommended_movies_poster=[]
-    for i in movies_list:
-        movies_id = movies.iloc[i[0]].id
-        recommended_movies.append(movies.iloc[i[0]].title)
-        recommended_movies_poster.append(fetch_poster(movies_id))
+# Text input for fuzzy title search
+input_title = st.text_input("Start typing a movie title:")
 
-    return recommended_movies,recommended_movies_poster
+if input_title:
+    # Case-insensitive partial match
+    matches = df[df['title'].str.lower().str.contains(input_title.lower())]['title'].tolist()
 
-st.set_page_config(layout="wide")
-st.title('movie recommender system')
-movies_dict = pickle.load(open('movies.pkl','rb'))
-movies = pd.DataFrame(movies_dict)
-similarity = pickle.load(open('similarity.pkl','rb'))
-option = st.selectbox('How would you like to continue?',movies['title'].values)
+    if matches:
+        selected_title = st.selectbox("Did you mean one of these?", matches)
 
-if st.button('Recommend'):
-    names, posters = recommend(option)
+        if selected_title:
+            results = get_recommendations(selected_title, df, similarity)
 
-
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        st.header(names[0])
-        st.image(posters[0])
-    with col2:
-        st.header(names[1])
-        st.image(posters[1])
-    with col3:
-        st.header(names[2])
-        st.image(posters[2])
-    with col4:
-        st.header(names[3])
-        st.image(posters[3])
-    with col5:
-        st.header(names[4])
-        st.image(posters[4])
+            if not results.empty:
+                st.subheader(f"Recommendations based on: {selected_title}")
+                for _, row in results.iterrows():
+                    st.markdown(f"**{row['title']}**")
+            else:
+                st.warning("No similar movies found.")
+    else:
+        st.warning("No matching titles found.")
